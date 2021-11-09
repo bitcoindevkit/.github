@@ -3,10 +3,12 @@
 
 Bitcoin Development Kit (BDK) is a library that allows you to seamlessly build cross-platform Bitcoin wallets without worrying about bitcoin internals.
 
+BDK is based on the powerful [`rust-bitcoin`](https://github.com/rust-bitcoin/rust-bitcoin) and [`rust-miniscript`](https://github.com/rust-bitcoin/rust-miniscript) libraries.
+
 Learn the simplest way to integrate Bitcoin wallet features into any application at [bitcoindevkit.org](https://bitcoindevkit.org/).
 
 ### 🔨 Contributing to the ecosystem
-Our team maintains [bdk](https://github.com/bitcoindevkit/bdk) which is the core library, while also maintaining a number of other open source projects like:
+Our team maintains [bdk](https://github.com/bitcoindevkit/bdk) which is the core library, while also maintaining a number of other related open source projects like:
  - [BDK CLI](https://github.com/bitcoindevkit/bdk-cli) - A CLI wallet library and REPL tool to demo and test the BDK library
  - [BDK FFI](https://github.com/bitcoindevkit/bdk-ffi) - A foreign language bindings generator for BDK (experimental)
  - [BDK Documentation](https://bitcoindevkit.org/) - Our open source documentation
