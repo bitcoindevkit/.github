@@ -1,5 +1,5 @@
 ## Hey there 👋
-![An image of the bitcoin development kit logo](https://github.com/bitcoindevkit/.github/blob/main/profile/bdk-banner.png?raw=true)
+![An image of the bitcoin development kit logo](https://github.com/bitcoindevkit/.github/blob/master/profile/bdk-banner.png?raw=true)
 
 Bitcoin Development Kit (BDK) is a library that allows you to seamlessly build cross-platform Bitcoin wallets without worrying about bitcoin internals.
 
