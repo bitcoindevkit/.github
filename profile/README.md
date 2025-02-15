@@ -37,7 +37,7 @@ We maintain multiple documentation and documentation-related codebases. The foll
 | ------------------------------------- | --------------------------- | ---------------- |
 | [bitcoindevkit.org]                   | [bitcoindevkit.org]         |                  |
 | BdkSwiftExampleWallet                 | [BDKSwiftExampleWallet]     | [reez]           |
-| Devkit Wallet                         | [bdk-kotlin-example-wallet] | [thunderbiscuit] |
+| Devkit Wallet                         | [devkit-wallet]             | [thunderbiscuit] |
 | [Book of BDK](https://bookofbdk.com)  | [book-of-bdk]               | [thunderbiscuit] |
 
 ### 😃 Join our community
@@ -54,5 +54,5 @@ Most of our communication happens on the BDK [discord server](https://discord.gg
 
 [bitcoindevkit.org]: https://bitcoindevkit.org/
 [BDKSwiftExampleWallet]: https://github.com/bitcoindevkit/BDKSwiftExampleWallet
-[bdk-kotlin-example-wallet]: https://github.com/bitcoindevkit/bdk-kotlin-example-wallet
+[devkit-wallet]: https://github.com/bitcoindevkit/devkit-wallet
 [book-of-bdk]: https://github.com/bitcoindevkitbook-of-bdk
