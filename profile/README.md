@@ -35,7 +35,7 @@ We maintain multiple documentation and documentation-related codebases. The foll
 
 | Project                               | Repository                  | Lead Maintainer  |
 | ------------------------------------- | --------------------------- | ---------------- |
-| [bitcoindevkit.org]                   | [bitcoindevkit.org]         |                  |
+| [https://bitcoindevkit.org]           | [bitcoindevkit.org]         |                  |
 | BdkSwiftExampleWallet                 | [BDKSwiftExampleWallet]     | [reez]           |
 | Devkit Wallet                         | [devkit-wallet]             | [thunderbiscuit] |
 | [Book of BDK](https://bookofbdk.com)  | [book-of-bdk]               | [thunderbiscuit] |
@@ -52,7 +52,8 @@ Most of our communication happens on the BDK [discord server](https://discord.gg
 [thunderbiscuit]: https://github.com/thunderbiscuit
 [rustaceanrob]: https://github.com/rustaceanrob
 
-[bitcoindevkit.org]: https://bitcoindevkit.org/
+[https://bitcoindevkit.org]: https://bitcoindevkit.org
+[bitcoindevkit.org]: https://github.com/bitcoindevkit/bitcoindevkit.org
 [BDKSwiftExampleWallet]: https://github.com/bitcoindevkit/BDKSwiftExampleWallet
 [devkit-wallet]: https://github.com/bitcoindevkit/devkit-wallet
 [book-of-bdk]: https://github.com/bitcoindevkitbook-of-bdk
