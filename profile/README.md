@@ -56,4 +56,4 @@ Most of our communication happens on the BDK [discord server](https://discord.gg
 [bitcoindevkit.org]: https://github.com/bitcoindevkit/bitcoindevkit.org
 [BDKSwiftExampleWallet]: https://github.com/bitcoindevkit/BDKSwiftExampleWallet
 [devkit-wallet]: https://github.com/bitcoindevkit/devkit-wallet
-[book-of-bdk]: https://github.com/bitcoindevkitbook-of-bdk
+[book-of-bdk]: https://github.com/bitcoindevkit/book-of-bdk
