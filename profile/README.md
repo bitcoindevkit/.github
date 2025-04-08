@@ -14,8 +14,8 @@ The core libraries are developed and maintained collectively by the Bitcoin Dev 
 
 | Library                 | Repository                                                                    | Lead Maintainer    |
 | ----------------------- | ----------------------------------------------------------------------------- | ------------------ |
-| `bdk_wallet`            | [bdk](https://github.com/bitcoindevkit/bdk_wallet)                            | [ValuedMammal]     |
-| `bdk_chain`             | [bdk](https://github.com/bitcoindevkit/bdk)                                   | [LagginTimes]      |
+| `bdk_wallet`            | [bdk_wallet](https://github.com/bitcoindevkit/bdk_wallet)                            | [ValuedMammal]     |
+| `bdk_chain`             | [bdk](https://github.com/bitcoindevkit/bdk)                                   | [evanlinjin]       |
 | `bdk_core`              | [bdk](https://github.com/bitcoindevkit/bdk)                                   |                    |
 | `bdk_tx`                | [bdk](https://github.com/bitcoindevkit/bdk-tx)                                |                    |
 | `bdk_esplora`           | [bdk](https://github.com/bitcoindevkit/bdk)                                   |                    |
@@ -49,6 +49,7 @@ Most of our communication happens on the BDK [discord server](https://discord.gg
 
 [ValuedMammal]: https://github.com/ValuedMammal 
 [LagginTimes]: https://github.com/LagginTimes
+[evanlinjin]: https://github.com/evanlinjin
 [reez]: https://github.com/reez
 [thunderbiscuit]: https://github.com/thunderbiscuit
 [rustaceanrob]: https://github.com/rustaceanrob
