@@ -14,10 +14,10 @@ The core libraries are developed and maintained collectively by the Bitcoin Dev 
 
 | Library                 | Repository                                                                    | Lead Maintainer    |
 | ----------------------- | ----------------------------------------------------------------------------- | ------------------ |
-| `bdk_wallet`            | [bdk_wallet](https://github.com/bitcoindevkit/bdk_wallet)                            | [ValuedMammal]     |
+| `bdk_wallet`            | [bdk_wallet](https://github.com/bitcoindevkit/bdk_wallet)                     | [ValuedMammal]     |
 | `bdk_chain`             | [bdk](https://github.com/bitcoindevkit/bdk)                                   | [evanlinjin]       |
 | `bdk_core`              | [bdk](https://github.com/bitcoindevkit/bdk)                                   |                    |
-| `bdk_tx`                | [bdk](https://github.com/bitcoindevkit/bdk-tx)                                |                    |
+| `bdk_tx`                | [bdk-tx](https://github.com/bitcoindevkit/bdk-tx)                             |                    |
 | `bdk_esplora`           | [bdk](https://github.com/bitcoindevkit/bdk)                                   |                    |
 | `bdk_electrum`          | [bdk](https://github.com/bitcoindevkit/bdk)                                   |                    |
 | `bdk_bitcoind_rpc`      | [bdk](https://github.com/bitcoindevkit/bdk)                                   |                    |
