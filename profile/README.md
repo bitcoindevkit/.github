@@ -25,7 +25,7 @@ The core libraries are developed and maintained collectively by the Bitcoin Dev 
 | `electrum-client`       | [rust-electrum-client](https://github.com/bitcoindevkit/rust-electrum-client) |                    |
 | `esplora-client`        | [rust-esplora-client](https://github.com/bitcoindevkit/rust-esplora-client)   |                    |
 | `bdk-kyoto`             | [bdk-kyoto](https://github.com/bitcoindevkit/bdk-kyoto)                       | [rustaceanrob]     |
-| `BitcoinDevkit` (Swift) | [bdk-ffi](https://github.com/bitcoindevkit/bdk-ffi)                           | [reez]             |
+| `BitcoinDevKit` (Swift) | [bdk-ffi](https://github.com/bitcoindevkit/bdk-ffi)                           | [reez]             |
 | `bdk-android` (Kotlin)  | [bdk-ffi](https://github.com/bitcoindevkit/bdk-ffi)                           | [thunderbiscuit]   |
 | `bdk-jvm` (Kotlin)      | [bdk-ffi](https://github.com/bitcoindevkit/bdk-ffi)                           | [thunderbiscuit]   |
 | `bdkpython` (Python)    | [bdk-ffi](https://github.com/bitcoindevkit/bdk-ffi)                           | [thunderbiscuit]   |
