@@ -17,10 +17,10 @@ The core libraries are developed and maintained collectively by the Bitcoin Dev 
 | `bdk_wallet`            | [bdk_wallet](https://github.com/bitcoindevkit/bdk_wallet)                     | [ValuedMammal]     | [oleonardolima]      |
 | `bdk_chain`             | [bdk](https://github.com/bitcoindevkit/bdk)                                   | [evanlinjin]       | [LagginTimes]        |
 | `bdk_core`              | [bdk](https://github.com/bitcoindevkit/bdk)                                   | [evanlinjin]       |                      |
-| `bdk_tx`                | [bdk-tx](https://github.com/bitcoindevkit/bdk-tx)                             |                    |                      |
+| `bdk_tx`                | [bdk-tx](https://github.com/bitcoindevkit/bdk-tx)                             | [ValuedMammal]     | [aagbotemi]          |
 | `bdk_esplora`           | [bdk](https://github.com/bitcoindevkit/bdk)                                   | [oleonardolima]    |                      |
 | `bdk_electrum`          | [bdk](https://github.com/bitcoindevkit/bdk)                                   | [LagginTimes]      |                      |
-| `bdk_bitcoind_rpc`      | [bdk](https://github.com/bitcoindevkit/bdk)                                   |                    |                      |
+| `bdk_bitcoind_rpc`      | [bdk](https://github.com/bitcoindevkit/bdk)                                   | [evanlinjin]       |                      |
 | `bdk_file_store`        | [bdk](https://github.com/bitcoindevkit/bdk)                                   |                    |                      |
 | `electrum-client`       | [rust-electrum-client](https://github.com/bitcoindevkit/rust-electrum-client) | [LagginTimes]      |                      |
 | `esplora-client`        | [rust-esplora-client](https://github.com/bitcoindevkit/rust-esplora-client)   | [oleonardolima]    |                      |
@@ -55,6 +55,7 @@ Most of our communication happens on the BDK [discord server](https://discord.gg
 [thunderbiscuit]: https://github.com/thunderbiscuit
 [rustaceanrob]: https://github.com/rustaceanrob
 [oleonardolima]: https://github.com/oleonardolima
+[aagbotemi]: https://github.com/aagbotemi
 [tvpeter]: https://github.com/tvpeter
 [LagginTimes]: https://github.com/LagginTimes
 [ItoroD]: https://github.com/ItoroD
