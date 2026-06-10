@@ -55,7 +55,7 @@ The lead and secondary maintainers for each project are responsible for:
 [bdk-ffi]: https://github.com/bitcoindevkit/bdk-ffi
 [bdk-jvm]: https://github.com/bitcoindevkit/bdk-jvm
 [bdk-android]: https://github.com/bitcoindevkit/bdk-ffi/tree/master/bdk-android
-[bdk-swift]: https://github.com/bitcoindevkit/bdk-ffi/tree/master/bdk-swift
+[bdk-swift]: https://github.com/bitcoindevkit/bdk-swift
 
 [book-of-bdk]: https://github.com/bitcoindevkit/book-of-bdk
 
