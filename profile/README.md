@@ -70,7 +70,7 @@ The lead and secondary maintainers for each project are responsible for:
 | [electrum_streaming_client] | [evanlinjin]       | [oleonardolima]        |
 | [bdk-bitcoind-client]       | [ValuedMammal]     | [tvpeter]              |
 | [bdk_sqlite]                | [ValuedMammal]     |                        |
-| [bdk-dart]                  | [reez]             |                        |
+| [bdk-dart]                  | [reez]             | [Johnosezele]          |
 | [bdk-rn]                    | [thunderbiscuit]   | [reez]                 |
 | [bdk-cli]                   | [tvpeter]          |                        |
 | [BDKSwiftExampleWallet]     | [reez]             |                        |
@@ -141,5 +141,6 @@ us on GitHub and the BDK [discord server](https://discord.gg/UbTmGbNF3M)!
 [matthiasdebernardini]: https://github.com/matthiasdebernardini
 [luisschwab]: https://github.com/luisschwab
 [aagbotemi]: https://github.com/aagbotemi
+[Johnosezele]: https://github.com/Johnosezele
 
 [https://bitcoindevkit.org]: https://bitcoindevkit.org
