@@ -23,22 +23,22 @@ The lead and secondary maintainers for each project are responsible for:
 
 ##### Stable
 
-| Project                     | Lead Maintainer    | Secondary Maintainer   |
-| --------------------------- | ------------------ | ---------------------- |
-| [bdk_wallet]                | [ValuedMammal]     | [oleonardolima]        |
-| [bdk_core]                  | [evanlinjin]       | [oleonardolima]        |
-| [bdk_chain]                 | [evanlinjin]       | [oleonardolima]        |
-| [bdk_esplora]               | [oleonardolima]    | [luisschwab]           |
-| [bdk_electrum]              | [evanlinjin]       | [oleonardolima]        |
-| [bdk_bitcoind_rpc]          | [evanlinjin]       | [ValuedMammal]         |
-| [bdk_testenv]               | [tvpeter]          | [luisschwab]           |
-| [esplora-client]            | [oleonardolima]    | [luisschwab]           |
-| [electrum-client]           | [oleonardolima]    | [luisschwab]           |
-| [bdk-ffi]                   | [thunderbiscuit]   | [reez]                 |
-| [bdk-jvm]                   | [thunderbiscuit]   | [ItoroD]               |
-| [bdk-android]               | [thunderbiscuit]   | [reez]                 |
-| [bdk-swift]                 | [reez]             | [thunderbiscuit]       |
-| [book-of-bdk]               | [thunderbiscuit]   | [reez]                 |
+| Project                     | 
+| --------------------------- |
+| [bdk_wallet]                |
+| [bdk_core]                  |
+| [bdk_chain]                 |
+| [bdk_esplora]               |
+| [bdk_electrum]              |
+| [bdk_bitcoind_rpc]          |
+| [bdk_testenv]               |
+| [esplora-client]            |
+| [electrum-client]           |
+| [bdk-ffi]                   |
+| [bdk-jvm]                   |
+| [bdk-android]               |
+| [bdk-swift]                 |
+| [book-of-bdk]               |
 
 [bdk_wallet]: https://github.com/bitcoindevkit/bdk_wallet
 [bdk_chain]: https://github.com/bitcoindevkit/bdk/tree/master/crates/chain
@@ -61,20 +61,19 @@ The lead and secondary maintainers for each project are responsible for:
 
 ##### Experimental
 
-| Project                     | Lead Maintainer    | Secondary Maintainer   |
-| --------------------------- | ------------------ | ---------------------- |
-| [bdk_coin_select]           | [evanlinjin]       |                        |
-| [bdk_file_store]            | [nymius]           |                        |
-| [bdk_tx]                    | [ValuedMammal]     | [aagbotemi]            |
-| [bdk_sp]                    | [nymius]           |                        |
-| [electrum_streaming_client] | [evanlinjin]       | [oleonardolima]        |
-| [bdk-bitcoind-client]       | [ValuedMammal]     | [tvpeter]              |
-| [bdk_sqlite]                | [ValuedMammal]     |                        |
-| [bdk-dart]                  | [reez]             | [Johnosezele]          |
-| [bdk-rn]                    | [thunderbiscuit]   | [reez]                 |
-| [bdk-cli]                   | [tvpeter]          |                        |
-| [BDKSwiftExampleWallet]     | [reez]             |                        |
-| [devkit-wallet]             | [thunderbiscuit]   |                        |
+| Project                     |
+| --------------------------- |
+| [bdk_coin_select]           |
+| [bdk_file_store]            |
+| [bdk_tx]                    |
+| [bdk_sp]                    |
+| [electrum_streaming_client] |
+| [bdk_sqlite]                |
+| [bdk-dart]                  |
+| [bdk-rn]                    |
+| [bdk-cli]                   |
+| [BDKSwiftExampleWallet]     |
+| [devkit-wallet]             |
 
 [bdk_coin_select]: https://github.com/bitcoindevkit/coin-select
 [bdk_file_store]: https://github.com/bitcoindevkit/bdk/tree/master/crates/file_store
@@ -93,14 +92,14 @@ The lead and secondary maintainers for each project are responsible for:
 
 ##### Stable
 
-| Project                     | Lead Maintainer    | Secondary Maintainer   |
-| --------------------------- | ------------------ | ---------------------- |
-| [bdk_kyoto]                 | [rustaceanrob]     |                        |
-| [bdk-python]                |                    |                        |
-| [bdk-wasm]                  | [darioAnongba]     |                        |
-| [bdk-reserves]              | [ulrichard]        |                        |
-| [rust-cktap]                | [notmandatory]     |  [reez]                |
-| [awesome-bdk]               | [thunderbiscuit]   |                        |
+| Project         |
+| --------------- |
+| [bdk_kyoto]     |
+| [bdk-python]    |
+| [bdk-wasm]      |
+| [bdk-reserves]  |
+| [rust-cktap]    |
+| [awesome-bdk]   |
 
 [bdk_kyoto]:https://github.com/bitcoindevkit/bdk-kyoto
 [bdk-python]: https://github.com/bitcoindevkit/bdk-python
@@ -111,11 +110,11 @@ The lead and secondary maintainers for each project are responsible for:
 
 ##### Experimental
 
-| Project                     | Lead Maintainer        | Secondary Maintainer   |
-| --------------------------- | ---------------------- | ---------------------- |
-| [bdk_sqlx]                  | [matthiasdebernardini] |                        |
-| [bitcoin-ffi]               |                        |                        |
-| [bdk-message-signer]        | [aagbotemi]            |                        |
+| Project               |
+| --------------------- |
+| [bdk_sqlx]            |
+| [bitcoin-ffi]         |
+| [bdk-message-signer]  |
 
 [bdk_sqlx]: https://github.com/bitcoindevkit/bdk-sqlx
 [bitcoin-ffi]: https://github.com/bitcoindevkit/bitcoin-ffi
@@ -125,22 +124,5 @@ The lead and secondary maintainers for each project are responsible for:
 
 Community is fundamental to building and maintaining free and open source software and documentation. Please connect with 
 us on GitHub and the BDK [discord server](https://discord.gg/UbTmGbNF3M)!
-
-[ValuedMammal]: https://github.com/ValuedMammal
-[evanlinjin]: https://github.com/evanlinjin
-[reez]: https://github.com/reez
-[thunderbiscuit]: https://github.com/thunderbiscuit
-[rustaceanrob]: https://github.com/rustaceanrob
-[oleonardolima]: https://github.com/oleonardolima
-[tvpeter]: https://github.com/tvpeter
-[ItoroD]: https://github.com/ItoroD
-[nymius]: https://github.com/nymius
-[darioAnongba]: https://github.com/darioAnongba
-[notmandatory]: https://github.com/notmandatory
-[ulrichard]: https://github.com/ulrichard
-[matthiasdebernardini]: https://github.com/matthiasdebernardini
-[luisschwab]: https://github.com/luisschwab
-[aagbotemi]: https://github.com/aagbotemi
-[Johnosezele]: https://github.com/Johnosezele
 
 [https://bitcoindevkit.org]: https://bitcoindevkit.org
