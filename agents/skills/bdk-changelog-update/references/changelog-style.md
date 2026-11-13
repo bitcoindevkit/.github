@@ -64,11 +64,13 @@ number is the PR. For commits without a PR, link the commit hash.
 
 ## Format
 
-Keep the release heading release-plz generated, but make the compare link point
-at `bitcoindevkit/bdk`:
+Keep the version and compare URL release-plz generated, and make the compare
+link point at `bitcoindevkit/bdk`. Never put a date in a version heading. If
+release-plz or an older file has ` - YYYY-MM-DD` after a heading, delete the
+suffix, including on older releases.
 
 ```markdown
-## [0.24.0](https://github.com/bitcoindevkit/bdk/compare/chain-0.23.2...chain-0.24.0) - 2026-11-03
+## [0.24.0](https://github.com/bitcoindevkit/bdk/compare/chain-0.23.2...chain-0.24.0)
 ```
 
 Use Keep a Changelog headings, in this order, only when non-empty:
@@ -115,7 +117,8 @@ empty section heading must be deleted.
 
 - The file title and preamble.
 - Any existing `## Unreleased` stub.
-- Everything below the release section, byte-for-byte.
+- Everything below the release section, byte-for-byte, except for removing
+  ` - YYYY-MM-DD` date suffixes from version headings.
 
 If the preamble says "Do not edit it manually", leave it unless the user asks
 to remove it.

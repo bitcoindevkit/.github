@@ -10,12 +10,16 @@ Turn release-plz's raw output into concise, verified CHANGELOG release notes —
 ## Hard rules
 
 - **Keep a Changelog style** follow the style guide in https://keepachangelog.com/en/1.0.0/
-- **Do not add any dates**, do not add any dates in the CHANGELOG files, the date the release PR is made is not the same as the date of the release
+- **No release dates in headings.** Never append a date to a version heading.
+  Remove any ` - YYYY-MM-DD` suffix already present in the changelog, including
+  on older headings. The date the release PR is made is not the date of the
+  release.
 - **One subagent per crate**, dispatched in parallel.
 - **Rebuild from history.** Use `git log <previous-tag>..HEAD`; never treat
   release-plz bullets as the source of truth.
 - **Only rewrite the newest release section.** Preserve the preamble, any
-  `## Unreleased` stub, and every older release byte-for-byte.
+  `## Unreleased` stub, and every older release byte-for-byte, except for
+  stripping ` - YYYY-MM-DD` date suffixes from version headings.
 - **User-facing changes only.** No CI, docs, tests, formatting, clippy,
   internal refactors, example-only fixes, dependency bumps, or release
   bookkeeping.
@@ -51,9 +55,10 @@ members), reads the newest release heading and its compare URL, and writes:
 - `/tmp/opencode/bdk-changelog/commits/<crate>.txt` — commit digest per crate
   (path commits, full range, PR merges)
 
-Only rewrite crates with `"needs_update": true` (the newest heading has the
-latest release date). Use `--only crate1,crate2` to narrow further, or
-`--date YYYY-MM-DD` if the release date must be forced.
+Only rewrite crates with `"needs_update": true` (the crate is part of the
+pending release: the heading's new tag does not exist yet). Use
+`--only crate1,crate2` to narrow further. `--date YYYY-MM-DD` remains only for
+repositories whose headings still carry dates.
 
 Review the warnings:
 
@@ -82,8 +87,7 @@ substituting:
 | `{{crate_dir}}` | crate directory (e.g. `crates/chain`) |
 | `{{changelog}}` | changelog path (e.g. `crates/chain/CHANGELOG.md`) |
 | `{{prev_tag}}` | previous release tag from the compare URL |
-| `{{heading}}` | the generated release heading |
-| `{{date}}` | release date from the heading |
+| `{{heading}}` | the generated release heading (with any date already removed) |
 | `{{commit_file}}` | digest path from `context.json` |
 | `{{style_guide}}` | `.../references/changelog-style.md` |
 
@@ -102,7 +106,8 @@ confirmation. Then:
      --root . --context /tmp/opencode/bdk-changelog/context.json
    ```
    It checks preamble/tail integrity against `HEAD`, link targets, heading
-   order, empty sections, and balanced markup.
+   order, empty sections, balanced markup, and rejects any version heading that
+   carries a ` - YYYY-MM-DD` date, including older ones.
 2. **Spot-check every `**Breaking:**` claim and every backticked API name**
    with `grep -rn '<name>' crates/<crate>/src`, or codegraph. This is where
    plausible-sounding but wrong entries are caught.

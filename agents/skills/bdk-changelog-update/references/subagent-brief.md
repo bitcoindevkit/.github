@@ -9,7 +9,6 @@ the repository at `{{root}}`.
 - Crate directory: `{{crate_dir}}`
 - Previous release tag: `{{prev_tag}}`
 - New release heading: `{{heading}}`
-- Release date: `{{date}}`
 - Commit digest: `{{commit_file}}`
 - Style guide: `{{style_guide}}`
 - Repository for links: `bitcoindevkit/bdk`
@@ -46,8 +45,11 @@ behavior against the source at `HEAD`.
    its change affects this crate's users.
 4. Rewrite **only** the section from the release heading down to (but not
    including) the next `## ` heading.
-   - Keep the heading line, but ensure the compare URL uses
+   - Keep the version and compare URL, but remove any ` - YYYY-MM-DD` date
+     suffix from the heading and ensure the compare URL uses
      `https://github.com/bitcoindevkit/bdk/compare/...`.
+   - Remove ` - YYYY-MM-DD` date suffixes from every other version heading in
+     the file too. Change nothing else outside the release section.
    - Use `### Added`, `### Changed`, `### Fixed`, `### Removed`, in that order,
      only when non-empty.
    - Follow the style guide: imperative bullets, backticked identifiers,
@@ -57,7 +59,9 @@ behavior against the source at `HEAD`.
 5. Do not edit `Cargo.toml`, other crates, or anything outside the changelog.
    Do not stage or commit.
 6. Verify:
-   - `git diff -- {{changelog}}` touches only the release section.
+   - `git diff -- {{changelog}}` touches only the release section and date
+     suffixes.
+   - No version heading in the changelog has a date suffix.
    - Every API name is confirmed with `grep -rn` or codegraph.
    - Every `**Breaking:**` claim is supported by the diff or PR.
    - The text below the section is byte-for-byte unchanged.

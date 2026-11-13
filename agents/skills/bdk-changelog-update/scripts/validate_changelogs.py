@@ -4,6 +4,7 @@
 Checks, per crate:
   * preamble and everything below the release section are unchanged from HEAD,
   * the compare URL points at bitcoindevkit/bdk,
+  * no version heading carries a ` - YYYY-MM-DD` date,
   * section headings are non-empty and in the order Added/Changed/Fixed/Removed,
   * bullets have balanced parentheses and backticks,
   * every link targets bitcoindevkit/bdk pull/commit pages,
@@ -27,7 +28,18 @@ COMPARE_RE = re.compile(
     r"(?P<prev>.+?)\.\.\.(?P<new>.+?))\)"
 )
 LINK_RE = re.compile(r"\]\((https://github\.com/[^)\s]+)\)")
+HEADING_DATE_RE = re.compile(
+    r"^(## \[[^\]]+\](?:\([^)]*\))?) - \d{4}-\d{2}-\d{2}\s*$"
+)
 ORDER = ["### Added", "### Changed", "### Fixed", "### Removed"]
+
+
+def strip_heading_dates(text: str) -> str:
+    lines = []
+    for line in text.splitlines():
+        match = HEADING_DATE_RE.match(line)
+        lines.append(match.group(1) if match else line)
+    return "\n".join(lines)
 
 
 def git_show(root: Path, rel: str) -> str | None:
@@ -170,6 +182,13 @@ def main() -> int:
         errors: list[str] = []
         warnings: list[str] = []
 
+        for line in current:
+            if HEADING_DATE_RE.match(line):
+                errors.append(
+                    "heading has a date; remove the ' - YYYY-MM-DD' suffix: "
+                    f"{line[:80]}"
+                )
+
         try:
             start, end = section_bounds(current)
         except ValueError as exc:
@@ -184,18 +203,19 @@ def main() -> int:
         if head_text is None:
             warnings.append("file is not in HEAD; skipped integrity check")
         else:
-            head = head_text.splitlines()
-            if current[: first_heading(current)] != head[: first_heading(head)]:
+            head = strip_heading_dates(head_text).splitlines()
+            normalized = strip_heading_dates(current_text).splitlines()
+            if normalized[: first_heading(normalized)] != head[: first_heading(head)]:
                 errors.append("preamble differs from HEAD")
 
-            if end < len(current):
-                marker = current[end]
+            if end < len(normalized):
+                marker = normalized[end]
                 try:
                     head_end = head.index(marker)
                 except ValueError:
                     errors.append(f"tail marker not found in HEAD: {marker}")
                 else:
-                    if current[end:] != head[head_end:]:
+                    if normalized[end:] != head[head_end:]:
                         errors.append(f"content below {marker!r} differs from HEAD")
 
         if errors:

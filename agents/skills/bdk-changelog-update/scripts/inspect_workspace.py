@@ -6,7 +6,8 @@ For every crate with a CHANGELOG.md, this script:
   * derives the previous release tag and the new tag,
   * checks whether the previous tag is an ancestor of HEAD,
   * writes a per-crate commit digest,
-  * marks which crates belong to the current release (same release date).
+  * marks which crates belong to the pending release (their new tag does not
+    exist yet).
 
 Output layout (default /tmp/opencode/bdk-changelog):
   context.json
@@ -30,6 +31,9 @@ HEADING_RE = re.compile(
     r"(?P<prev>.+?)\.\.\.(?P<new>.+?))\)"
     r"(?: - (?P<date>\d{4}-\d{2}-\d{2}))?\s*$"
 )
+HEADING_DATE_RE = re.compile(
+    r"^## \[[^\]]+\](?:\([^)]*\))? - \d{4}-\d{2}-\d{2}\s*$"
+)
 
 SHORT = {"bdk_chain": "chain", "bdk_core": "core", "bdk_bitcoind_rpc": "bitcoind_rpc",
          "bdk_electrum": "electrum", "bdk_esplora": "esplora",
@@ -44,6 +48,14 @@ def git(root: Path, *args: str, check: bool = True) -> subprocess.CompletedProce
 
 def run_git(root: Path, *args: str) -> str:
     return git(root, *args).stdout.strip()
+
+
+def tag_exists(root: Path, tag: str) -> bool:
+    return (
+        git(root, "rev-parse", "--verify", "--quiet", f"refs/tags/{tag}", check=False)
+        .returncode
+        == 0
+    )
 
 
 def package_version(crate_dir: Path, workspace: dict) -> str:
@@ -65,6 +77,8 @@ def discover(root: Path) -> list[dict]:
     if release_plz.exists():
         cfg = tomllib.loads(release_plz.read_text())
         for pkg in cfg.get("package", []):
+            if pkg.get("release") is False or "changelog_path" not in pkg:
+                continue
             changelog = root / pkg["changelog_path"]
             entries.append(
                 {
@@ -108,7 +122,10 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", default=".", help="repository root or a path inside it")
     parser.add_argument("--out", default="/tmp/opencode/bdk-changelog")
-    parser.add_argument("--date", help="release date to update (default: newest date found)")
+    parser.add_argument(
+        "--date",
+        help="legacy: select crates whose heading still carries this date (YYYY-MM-DD)",
+    )
     parser.add_argument("--only", help="comma-separated crate names to include")
     args = parser.parse_args()
 
@@ -143,6 +160,17 @@ def main() -> int:
                 "rewrite it to bitcoindevkit/bdk"
             )
 
+        dated = [
+            line
+            for line in changelog.read_text().splitlines()
+            if HEADING_DATE_RE.match(line)
+        ]
+        if dated:
+            warnings.append(
+                f"{entry['package']}: {len(dated)} version heading(s) have dates; "
+                "remove the ' - YYYY-MM-DD' suffixes"
+            )
+
         if entry["new_tag"].rsplit("-", 1)[-1] != entry["version"]:
             warnings.append(
                 f"{entry['package']}: new tag {entry['new_tag']} does not match "
@@ -153,6 +181,7 @@ def main() -> int:
             root, "merge-base", "--is-ancestor", entry["prev_tag"], "HEAD", check=False
         )
         entry["prev_is_ancestor"] = ancestor.returncode == 0
+        entry["new_tag_exists"] = tag_exists(root, entry["new_tag"])
         if not entry["prev_is_ancestor"]:
             prefix = entry["prev_tag"].rsplit("-", 1)[0]
             merged = run_git(root, "tag", "--merged", "HEAD", "--sort=-creatordate")
@@ -164,9 +193,6 @@ def main() -> int:
                 "Keep the release-plz baseline unless the user says otherwise."
             )
 
-        if not entry["date"]:
-            warnings.append(f"{entry['package']}: release heading has no date")
-
         entries.append(entry)
 
     dates = [e["date"] for e in entries if e.get("date")]
@@ -174,10 +200,20 @@ def main() -> int:
     only = {s.strip() for s in args.only.split(",")} if args.only else None
 
     for entry in entries:
-        entry["needs_update"] = (
-            entry.get("date") == target_date
-            and (only is None or entry["package"] in only or str(entry["crate_dir"]) in only)
+        name_match = (
+            only is None
+            or entry["package"] in only
+            or str(entry["crate_dir"]) in only
         )
+        if not name_match:
+            selected = False
+        elif args.date:
+            # Legacy selection for repositories whose headings still carry dates.
+            selected = entry.get("date") == args.date
+        else:
+            # A pending release bumps the version before creating its tag.
+            selected = not entry["new_tag_exists"]
+        entry["needs_update"] = selected
 
     # Per-crate digests.
     for entry in entries:
@@ -217,7 +253,6 @@ def main() -> int:
 
     print(f"root: {root}")
     print(f"out:  {out}")
-    print(f"release date: {target_date or '(unknown)'}")
     print()
     print(f"{'crate':22} {'version':8} {'prev tag':18} {'anc':3} {'commits':>7} {'path':>5}  update")
     for entry in entries:
